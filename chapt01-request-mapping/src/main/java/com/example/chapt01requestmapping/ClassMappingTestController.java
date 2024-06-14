@@ -1,4 +1,4 @@
-package com.ohgiraffers.chap01requestmapping;
+package com.example.chapt01requestmapping;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,13 +34,13 @@ public class ClassMappingTestController {
     //    class 레벨 매핑
     @GetMapping("/regist")
     public String registOrder(Model model) {
-        model.addAttribute("message", "get 방식의 주문 등록용 핸들러 메소드를 호출함");
+        model.addAttribute("message", "레지스트를 겟으로 호출험");
         return "mappingResult";
     }
 
     @PostMapping("/regist")
     public String registOrderPost(Model model) {
-        model.addAttribute("message", "post 방식의 주문 등록용 핸들러 메소드를 호출함");
+        model.addAttribute("message", "2222");
         return "mappingResult";
     }
 

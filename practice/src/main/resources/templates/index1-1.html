@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title for index1-1</title>
+    <title>결과 페이지</title>
 </head>
 <body>
-<h1 th:text="${inputData}">전송된 데이터</h1>
+<h2>결과</h2>
+
+<p>전송된 데이터: <span th:text="${inputData}"></span> </p>
+
 </body>
 </html>

@@ -3,13 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <script type="text/javascript">
+        function checkPermission() {
+            var selectBox = document.getElementById("responseType");
+            var selectedValue = selectBox.value;
+
+            if (selectedValue === "비정상응답") {
+                alert("잘못된 요청입니다.");
+            } else if (selectedValue === "정상응답") {
+                var inputData = document.getElementById("inputData").value;
+                sessionStorage.setItem("inputData", inputData);
+
+                // 폼 직접 제출하지 않고, 데이터를 다음 페이지로 전달하는 방법 사용
+                window.location.href = "/submitForm";
+            }
+        }
+
+    </script>
 </head>
 <body>
-<h2>입력</h2>
-<form action="submitForm" method="post">
+<form id="myForm" action="/submitForm" method="post">
     <label for="inputData">데이터 입력:</label>
     <input type="text" id="inputData" name="inputData">
-    <button type="submit">전송</button>
+
+    <label for="responseType">응답 타입 선택:</label>
+    <select id="responseType" name="responseType"> <!-- name 속성 추가 -->
+        <option value="비정상응답">비정상 응답</option>
+        <option value="정상응답">정상 응답</option>
+    </select>
+
+    <button type="button" onclick="checkPermission()">전송</button>
 </form>
+
 </body>
 </html>
